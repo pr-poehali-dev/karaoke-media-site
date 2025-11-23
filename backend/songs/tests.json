@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Get all songs",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "songs": "array",
+        "total": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Search songs by title",
+      "method": "GET",
+      "path": "/?search=Bohemian",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "songs": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Filter by genre",
+      "method": "GET",
+      "path": "/?genre=Рок",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "songs": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

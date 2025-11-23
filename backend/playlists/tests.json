@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "name": "Get user playlists",
+      "method": "GET",
+      "path": "/",
+      "headers": {
+        "X-User-Id": "1"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "playlists": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create new playlist",
+      "method": "POST",
+      "path": "/",
+      "headers": {
+        "X-User-Id": "1",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "My Favorites",
+        "description": "Best songs collection"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "id": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
